@@ -25,8 +25,8 @@ class UpdateScheduleRequest extends FormRequest
         return [
             'kelas_id' => 'nullable|exists:kelas,id',
             'teacher_id' => 'nullable|exists:teachers,id',
-            'start_time' => 'nullable|time',
-            'end_time' => 'nullable|time'
+            'start_time' => 'nullable|date_format:H:i',
+            'end_time' => 'nullable|date_format:H:i'
         ];
     }
 }

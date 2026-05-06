@@ -25,8 +25,8 @@ class StoreScheduleRequest extends FormRequest
         return [
             'kelas_id' => 'required|exists:kelas,id',
             'teacher_id' => 'required|exists:teachers,id',
-            'start_time' => 'required|time',
-            'end_time' => 'required|time'
+            'start_time' => 'required|date_format:H:i',
+            'end_time' => 'required|date_format:H:i'
         ];
     }
 }

@@ -15,7 +15,7 @@ class TeacherDutyController extends Controller
     public function index()
     {
         return response()->json([
-            'data' => TeacherDuty::all(),
+            'data' => TeacherDuty::all()->load('teacher'),
         ]);
     }
 
@@ -38,7 +38,7 @@ class TeacherDutyController extends Controller
     public function show(TeacherDuty $teacherDuty)
     {
         return response()->json([
-            'data' => $teacherDuty,
+            'data' => $teacherDuty->load('teacher'),
         ]);
     }
 
@@ -51,7 +51,7 @@ class TeacherDutyController extends Controller
 
         return response()->json([
             'message' => 'Teacher duty updated successfully',
-            'data' => $teacherDuty,
+            'data' => $teacherDuty->load('teacher'),
         ]);
     }
 

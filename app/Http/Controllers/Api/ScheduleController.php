@@ -15,7 +15,7 @@ class ScheduleController extends Controller
     public function index()
     {
         return response()->json([
-            'data' => Schedule::all(),
+            'data' => Schedule::all()->load(['kelas', 'teacher', 'teacher.mataPelajaran']),
         ]);
     }
 
@@ -28,7 +28,7 @@ class ScheduleController extends Controller
 
         return response()->json([
             'message' => 'Schedule created successfully',
-            'data' => $schedule,
+            'data' => $schedule->load(['kelas', 'teacher', 'teacher.mataPelajaran']),
         ], 201);
     }
 
@@ -38,7 +38,7 @@ class ScheduleController extends Controller
     public function show(Schedule $schedule)
     {
         return response()->json([
-            'data' => $schedule,
+            'data' => $schedule->load(['kelas', 'teacher', 'teacher.mataPelajaran']),
         ]);
     }
 
@@ -51,7 +51,7 @@ class ScheduleController extends Controller
 
         return response()->json([
             'message' => 'Schedule updated successfully',
-            'data' => $schedule,
+            'data' => $schedule->load(['kelas', 'teacher', 'teacher.mataPelajaran']),
         ]);
     }
 
