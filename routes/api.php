@@ -21,3 +21,5 @@ Route::apiResource('agendas', AgendaController::class);
 Route::apiResource('announcements', AnnouncementController::class);
 Route::apiResource('schedules', ScheduleController::class);
 Route::apiResource('teacher_duties', TeacherDutyController::class);
+
+Route::get('/stats', [\App\Http\Controllers\Api\MainController::class, 'stats']);
